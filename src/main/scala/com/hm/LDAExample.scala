@@ -6,11 +6,9 @@ import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.mllib.clustering.{DistributedLDAModel, LDA}
 import org.apache.spark.rdd.RDD
-
 import org.apache.spark.ml.attribute.Attribute
 import org.apache.spark.ml.feature.{IndexToString, StringIndexer}
 import org.apache.spark.sql.Row
-// $example off$
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.feature.StopWordsRemover
 

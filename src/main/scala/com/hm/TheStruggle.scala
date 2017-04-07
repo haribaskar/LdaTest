@@ -3,6 +3,8 @@ package com.hm
 /**
   * Created by swathi on 3/4/17.
   */
+import java.util.concurrent.atomic.AtomicInteger
+
 import org.apache.spark.{SparkConf, SparkContext}
 
 import scala.collection.mutable
@@ -10,8 +12,12 @@ import org.apache.spark.mllib.clustering.{DistributedLDAModel, LDA}
 import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.rdd.RDD
 
+import scala.collection.JavaConversions._
 object TheStruggle {
 
+
+  var i=0
+  val id=new AtomicInteger()
   def main(args: Array[String]): Unit = {
 
 
@@ -65,8 +71,15 @@ object TheStruggle {
     val topicIndices = ldaModel.describeTopics(maxTermsPerTopic = 10)
     topicIndices.foreach { case (terms, termWeights) =>
       println("TOPIC:")
+
+
+      i=i+1
       terms.zip(termWeights).foreach { case (term, weight) =>
         println(s"${vocabArray(term.toInt)}\t$weight")
+        var kvMap= Map[String,Any]()
+          kvMap +=("Topic"->i)
+          kvMap +=(vocabArray(term.toInt)->weight)
+        //  insert("topic","test","_id",kvMap)
       }
       println()
     }
@@ -87,9 +100,18 @@ object TheStruggle {
 
 //    println("::" + value)
   }
-//
-//  def minMax(a: Array[Double]): (Double, Double) = {
-//    if (a.isEmpty) throw new java.lang.UnsupportedOperationException("array is empty")
-//    a.max
-//  }
+      def insert(indexName:String,tagName:String,keyFieldName:String,map:Map[String,Any]): Unit ={
+        //ElasticClient2.createIndex(indexName)
+        /*var idCount: Long = try {
+          ElasticClient2.getMinMaxLong(indexName, tagName, keyFieldName)._2
+        } catch {
+          case e: Exception => println("Error while getting idcount" + e)
+            0
+        }*/
+
+         //println("idcount"+idCount)
+        println("map"+map)
+        ElasticClient2.bulkUpsert(indexName, tagName, map, id.getAndIncrement())
+        println("elastic search bulk upsert")
+      }
 }

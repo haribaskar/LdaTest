@@ -1,7 +1,7 @@
 [debug] Other repositories:
 [debug] Default repositories:
-[debug] Using inline dependencies specified in Scala.
 [debug] no default cache defined: set to /home/hari/.ivy2/cache
+[debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#ldatest$sbt_2.10;1.0
 [debug] 	confs: [default]
 [debug] 	validate = true
@@ -1775,9 +1775,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.13!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
-[debug] :: resolution report :: resolve 496ms :: artifacts dl 12ms
+[debug] :: resolution report :: resolve 216ms :: artifacts dl 5ms
 [debug] 	report for default#ldatest$sbt_2.10;1.0 default produced in /home/hari/Downloads/ldaTest/target/resolution-cache/reports/default-ldatest$sbt_2.10-default.xml
-[debug] 	resolve done (496ms resolve - 12ms download)
+[debug] 	resolve done (216ms resolve - 5ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#ldatest$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -2471,6 +2471,6 @@
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.6!scala-compiler.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#interface;0.13.13!interface.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#logging;0.13.13!logging.jar(src)
-[debug] :: resolution report :: resolve 92ms :: artifacts dl 11ms
+[debug] :: resolution report :: resolve 51ms :: artifacts dl 5ms
 [debug] 	report for default#ldatest$sources_2.10;1.0 default produced in /home/hari/Downloads/ldaTest/target/resolution-cache/reports/default-ldatest$sources_2.10-default.xml
-[debug] 	resolve done (92ms resolve - 11ms download)
+[debug] 	resolve done (51ms resolve - 5ms download)
